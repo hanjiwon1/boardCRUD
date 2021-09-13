@@ -13,7 +13,8 @@
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" 
-			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" 
+			aria-expanded="false">
 				<!-- 햄버거아이콘 생성 (화면 크기가 작아질 때 생김) -->
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -46,12 +47,16 @@
 			<div class="jumbotron" style="padding-top: 20px;">
 				<form method="post" action="loginAction.jsp">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="id" name="userID" maxlength="20">
+						<input type="text" class="form-control" 
+						placeholder="id" name="userID" maxlength="20">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="password" name="userPassword" maxlength="20">
+						<input type="password" class="form-control" 
+						placeholder="password" name="userPassword" 
+						maxlength="20">
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="sign in">
+					<input type="submit" class="btn btn-primary form-control" 
+					value="sign in">
 				</form>
 			</div>
 		</div>
@@ -60,4 +65,3 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 </body>
-</html>
