@@ -9,9 +9,6 @@ public class User {
 	public String getUserID() {
 		return userID;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -35,6 +32,9 @@ public class User {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	
 	

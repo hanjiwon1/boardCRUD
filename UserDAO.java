@@ -12,9 +12,9 @@ public class UserDAO {
 	
 	public UserDAO() { //이 연결 코드를 생성자에 입력해두지 않으면 각 기능을 담당하는 메소드마다 모두 똑같은 코드를 입력해줘야한다. 
 		try {
-			String dbURL = "jdbc:mariadb://localhost:3306/bbs"; //MariaDB와 연결시켜주는 주소
-			String dbID = "root"; //MariaDB계정
-			String dbPassword = "root"; //MariaDB비밀번호(지원이 모름)
+			String dbURL = "jdbc:mariadb://133.186.222.241:3306/bbs"; //MariaDB와 연결시켜주는 주소
+			String dbID = "redmine"; //MariaDB계정
+			String dbPassword = "epdlxjtm123!@#"; //MariaDB비밀번호(지원이 모름)
 			Class.forName("org.mariadb.jdbc.Driver"); //JDBC연결 클래스를 'String'타입으로 불러온다.
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword); //드라이버 매니저에 미리 저장했던 연결 URL과 DB계정 정보를 담아 연결 설정을 한다.
 		}catch (Exception e) {
@@ -40,5 +40,21 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return -2; //실행 오류
+	}
+	
+	public int join(User user) {
+		String sql = "insert into USER values(?, ?, ?, ?, ?)"; //'user'테이블에 데이터를 입력하기 위한 쿼리문
+		try {
+			pstmt = conn.prepareStatement(sql); //sql 쿼리문을 대기 시킨다.
+			pstmt.setString(1, user.getUserID()); //각각의 물음표 자리에 사용자가 입력한 내용을 셋팅
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserName());
+			pstmt.setString(4, user.getUserGender());
+			pstmt.setString(5, user.getUserEmail());
+			return pstmt.executeUpdate(); //실제 DB에서 insert를 정상적으로 입력하면 Query 1 OK라고 뜨는데 그 숫자를 받아온다.(정상 입력이라면 1이상의 숫자가 리턴될것이라는 뜻)
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 }
