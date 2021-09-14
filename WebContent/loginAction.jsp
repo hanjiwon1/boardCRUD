@@ -14,11 +14,32 @@
 </head>
 <body>
 	<% 
+	//로그인시 세션을 부여하는 단계에서 작성한 코드입니다.
+	
+	//현재 세션의 상태를 체크하는 코드
+	String userID = null;
+	if (session.getAttribute("userID") != null) {
+		userID = (String)session.getAttribute("userID");
+	}
+	
+	//이미 로그인 되어있다면 재로그인을 하지 못하게 하는 코드
+	if (userID != null) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('이미 로그인 되어있습니다.')");
+		script.println("location.href='main.jsp'");
+		script.println("</script>");
+	}
+	//로그인시 세션 부여 단계 작성 코드 끝 입니다.
+	
 	UserDAO userDAO = new UserDAO(); //UserDAO 클래스 인스턴스 'userDAO'를 생성한다.
 	//int타입 변수 'result'에 'userDAO'인스턴스 클래스의 'login'메소드의 실행 결과를 저장한다.
 	// 'login'메소드의 매개변수는 실제 브라우저에서 사용자가 입력한 아이디와 비밀번호가 들어간다.
 	int result = userDAO.login(user.getUserID(), user.getUserPassword());
 	if (result == 1){ //login메소드를 만들 때 결과에 따른 반환값을 모두 다르게 설정했다. (UserDAO.java) 반환값에 따라 사용자에게 보여지는 화면의 로직을 다르게 설정해준다.
+		
+		session.setAttribute("userID", user.getUserID()); //로그인에 성공했을 때 세션을 부여해주는 코드입니다.
+		
 		PrintWriter script = response.getWriter(); //자바스크립트 문장을 실행하게 해준다.
 		script.println("<script>");
 		script.println("alert('로그인 성공')");

@@ -43,7 +43,7 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String sql = "insert into USER values(?, ?, ?, ?, ?)"; //'user'테이블에 데이터를 입력하기 위한 쿼리문
+		String sql = "insert into USER values(?, ?, ?, ?, ?)"; //'USER'테이블에 데이터를 입력하기 위한 쿼리문
 		try {
 			pstmt = conn.prepareStatement(sql); //sql 쿼리문을 대기 시킨다.
 			pstmt.setString(1, user.getUserID()); //각각의 물음표 자리에 사용자가 입력한 내용을 셋팅
