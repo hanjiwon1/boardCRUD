@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- <meta name="viewport" content="width=device-width", initial-scale="1"> -->
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>jsp게시판</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">한지원</a>
+			<a class="navbar-brand" href="main.jsp">한지원 게시판</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -68,6 +69,19 @@
 		</div>
 	</nav>
 	<!-- nav바 끝 -->
+	
+	<!-- main페이지 본문 영역 시작 -->
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>데이터스 게시판</h1>
+				<p>방가방가, 인턴 한지원이 만든 게시판입니다.</p>
+				<a class="btn btn-primary btn-pull" href="https://github.com/hanjiwon1/boardCRUD" role="button">게시판 코드 보기(github)</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- main페이지 본문 영역 끝 -->
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
