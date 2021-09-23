@@ -76,11 +76,11 @@ public class BbsDAO {
 	
 	//게시글 리스트 메소드
 	public ArrayList<Bbs> getList(int pageNumber){
-		String sql = "select * from BBS where bbsID < ? and bbsAvailable = 1 order by bbsID desc limit 10";
+		String sql = "select * from BBS where bbsAvailable = 1 order by bbsID desc limit ?, 10";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			pstmt.setInt(1, (pageNumber-1) * 10);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Bbs bbs = new Bbs();
@@ -100,12 +100,18 @@ public class BbsDAO {
 	
 	//페이징 처리 메소드
 	public boolean nextPage(int pageNumber) {
-		String sql = "select * from BBS where bbsID < ? and bbsAvailable = 1";
+		String sql = "select count(*) from BBS where bbsAvailable = 1";
+//		int bbsNo;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+//			bbsNo = getNext();
+//			System.out.printf("*********** %d ***********\n", bbsNo);
+//			pstmt.setInt(1, bbsNo - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			rs.next();
+//			System.out.printf("%d\n", rs.getInt(1));
+			
+			if(rs.getInt(1) > (pageNumber-1) * 10) {
 				return true;
 			}
 		}catch (Exception e) {

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<%
-	//사용자가 메인페이지로 이동했을 때 세션에 값이 담겨있는지를 체크하는 부분
+	//사용자가 해당 페이지로 이동했을 때 세션에 값이 담겨있는지를 체크하는 부분
 	String userID = null;
 	if (session.getAttribute("userID") != null) {
 		userID = (String)session.getAttribute("userID");

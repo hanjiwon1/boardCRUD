@@ -100,7 +100,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<!-- 글쓰기 버튼 생성 -->
+				<!-- 수정하기 버튼 생성 -->
 				<input type="submit" class="btn btn-primary pull-right" value="수정하기 ">
 			</form>
 		</div>

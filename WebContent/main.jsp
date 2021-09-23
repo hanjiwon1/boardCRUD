@@ -75,7 +75,7 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>데이터스 게시판</h1>
-				<p>방가방가, 인턴 한지원이 만든 게시판입니다.</p>
+				<p>게시판입니다.</p>
 				<a class="btn btn-primary btn-pull" href="https://github.com/hanjiwon1/boardCRUD" role="button">게시판 코드 보기(github)</a>
 			</div>
 		</div>

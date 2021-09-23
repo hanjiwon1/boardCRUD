@@ -35,7 +35,7 @@
 		script.println("</script>");
 	}
 	
-	//유효한 글이라며 구체적 정보를 'bbs'라는 인스턴스에 담는다.
+	//유효한 글이라면 구체적 정보를 'bbs'라는 인스턴스에 담는다.
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
 	%>
 	
